@@ -19,8 +19,42 @@
         compatible = "zmk,combos";
 
         rt_jk_esc {
-            bindings = <&kp ESCAPE>;
+            bindings = <&kp ESC>;
             key-positions = <21 20>;
+        };
+
+        en_esc {
+            bindings = <&kp ESC>;
+            key-positions = <14 15>;
+        };
+    };
+
+    behaviors {
+        modmorph_minus_qmark: modmorph_minus_qmark {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MODMORPH_MINUS_QMARK";
+            bindings = <&kp MINUS>, <&kp QMARK>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        modmorph_dot_colon: modmorph_dot_colon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MODMORPH_DOT_COLON";
+            bindings = <&kp DOT>, <&kp COLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        modmorph_coma_semi: modmorph_coma_semi {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MODMORPH_COMA_SEMI";
+            bindings = <&kp COMMA>, <&kp SEMI>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
         };
     };
 
@@ -37,10 +71,10 @@
             //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
 
             bindings = <
-  &lt 4 Q           &kp C           &kp O      &kp P          &kp W      &none  &none  &kp J        &kp M                     &kp D  &kp RIGHT_ALT  &kp Y
-  &kp A             &kp S           &kp E      &kp N          &kp F      &none  &none  &kp L        &kp R                     &kp T  &kp I          &kp U
-  &mt LEFT_SHIFT Z  &mt LEFT_ALT X  &kp MINUS  &kp V          &kp B                    &kp DOT      &kp H                     &kp G  &kp COMMA      &kp K
-                                    &kp LGUI   &mt LCTRL TAB  &kp SPACE                &lt 1 ENTER  &mt LEFT_SHIFT BACKSPACE  &mo 2
+  &lt 4 Q           &kp C           &kp O                  &kp P          &kp W      &none  &none  &kp J                &kp M                     &kp D  &kp RIGHT_ALT        &kp Y
+  &kp A             &kp S           &kp E                  &kp N          &kp F      &none  &none  &kp L                &kp R                     &kp T  &kp I                &kp U
+  &mt LEFT_SHIFT Z  &mt LEFT_ALT X  &modmorph_minus_qmark  &kp V          &kp B                    &modmorph_dot_colon  &kp H                     &kp G  &modmorph_coma_semi  &kp K
+                                    &kp LGUI               &mt LCTRL TAB  &kp SPACE                &lt 1 ENTER          &mt LEFT_SHIFT BACKSPACE  &mo 2
             >;
         };
 
@@ -88,6 +122,8 @@
   &trans    &trans    &trans     &trans      &trans                  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &kp F12
                       &trans     &trans      &trans                  &trans          &trans          &trans
             >;
+
+            label = "MUSFN";
         };
     };
 };
