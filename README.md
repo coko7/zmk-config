@@ -2,6 +2,8 @@
 
 ZMK config for my 5-col crkbd with nice!view display keyboard.
 
+![Stock keyboard picture from Keebart website](./assets/corne_choc_pro.webp)
+
 ## Specs
 
 These are the keyboard specs:
@@ -15,3 +17,16 @@ These are the keyboard specs:
 - Vendor: [Keebart](https://www.keebart.com/) ([keyboard reference](https://www.keebart.com/products/corne-wireless))
 - RGB Lighting: yes
 - Displays: [nice!view](https://nicekeyboards.com/nice-view/)
+
+## Keymap
+
+![keymap SVG](./assets/keymap.svg)
+
+## Previous keyboard
+
+This 36 keys corne pro was not my first ergo keyboard.
+
+My previous keyboards:
+
+- [46 keys wired Corne](https://github.com/coko7/crkbd)
+- [58 keys wired Sofle](https://github.com/coko7/sofle)
