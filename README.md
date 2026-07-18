@@ -2,7 +2,7 @@
 
 ZMK config for my 5-col crkbd with nice!view display keyboard.
 
-![Stock keyboard picture from Keebart website](./assets/corne_choc_pro.webp)
+![Photo of the Corne Choc Pro keyboard](./assets/corne_pro_banner.webp)
 
 ## Specs
 
