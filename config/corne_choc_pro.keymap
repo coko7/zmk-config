@@ -15,19 +15,7 @@
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        rt_jk_esc {
-            bindings = <&kp ESC>;
-            key-positions = <21 20>;
-        };
-
-        en_esc {
-            bindings = <&kp ESC>;
-            key-positions = <14 15>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     behaviors {
         modmorph_minus_qmark: modmorph_minus_qmark {
@@ -71,14 +59,14 @@
             //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
 
             bindings = <
-  &lt 3 Q           &kp C           &kp O                  &kp P          &kp W      &none  &none  &kp J                &kp M                     &kp D  &kp RIGHT_ALT        &kp Y
-  &kp A             &kp S           &kp E                  &kp N          &kp F      &none  &none  &kp L                &kp R                     &kp T  &kp I                &kp U
-  &mt LEFT_SHIFT Z  &mt LEFT_ALT X  &modmorph_minus_qmark  &kp V          &kp B                    &modmorph_dot_colon  &kp H                     &kp G  &modmorph_coma_semi  &kp K
-                                    &kp LGUI               &mt LCTRL TAB  &kp SPACE                &lt 1 ENTER          &mt LEFT_SHIFT BACKSPACE  &mo 2
+  &kp Q           &kp C           &kp O                  &kp P             &kp W      &none  &none  &kp J                &kp M              &kp D                &kp RIGHT_ALT        &kp Y
+  &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_CONTROL E     &mt LEFT_SHIFT N  &kp F      &none  &none  &kp L                &mt RIGHT_SHIFT R  &mt RIGHT_CONTROL T  &mt LEFT_ALT I       &mt RIGHT_GUI U
+  &kp Z           &kp X           &modmorph_minus_qmark  &kp V             &kp B                    &modmorph_dot_colon  &kp H              &kp G                &modmorph_coma_semi  &kp K
+                                  &lt 5 ESCAPE           &lt 1 SPACE       &lt 3 TAB                &lt 6 ENTER          &lt 7 BACKSPACE    &lt 2 DELETE
             >;
         };
 
-        navnum_layer {
+        nav_layer {
             display-name = "NAVNUM";
 
             // --------------------------------------------------------------------------------
@@ -88,10 +76,10 @@
             //                    | GUI |     | SPC   |        | ENT   |     | ALT |
 
             bindings = <
-  &kp N1   &kp N2          &kp N3            &kp N4           &kp N5           &trans  &trans  &kp N6    &kp N7     &kp N8     &kp N9     &kp N0
-  &kp F14  &kp C_VOL_DN    &kp C_MUTE        &kp C_VOLUME_UP  &none            &trans  &trans  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp DEL
-  &kp F13  &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT       &kp PRINTSCREEN                  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &none
-                           &trans            &trans           &mo 4                            &trans    &trans     &trans
+  &trans    &trans    &trans     &trans     &trans  &trans  &trans  &kp K_REDO    &kp K_PASTE     &kp K_COPY      &kp K_CUT     &kp K_UNDO
+  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &trans  &trans  &trans  &kp CAPSLOCK  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW
+  &trans    &trans    &trans     &trans     &trans                  &kp INSERT    &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END
+                      &trans     &trans     &trans                  &kp ENTER     &kp BACKSPACE   &kp DELETE
             >;
         };
 
@@ -105,12 +93,12 @@
             >;
         };
 
-        mouse_fn_layer {
+        mouse_layer {
             bindings = <
-  &kp F1    &kp F2    &kp F3     &kp F4      &kp F5  &trans  &trans  &kp F6          &kp F7          &kp F8        &kp F9           &kp F10
-  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &trans  &trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &kp F11
-  &trans    &trans    &trans     &trans      &trans                  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &kp F12
-                      &trans     &trans      &trans                  &mkp LCLK       &mkp RCLK       &mkp MCLK
+  &trans    &trans    &trans     &trans      &trans  &trans  &trans  &kp K_REDO  &kp K_PASTE     &kp K_COPY      &kp K_CUT     &kp K_UNDO
+  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &trans  &trans  &trans  &trans      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT
+  &trans    &trans    &trans     &trans      &trans                  &trans      &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT
+                      &trans     &trans      &trans                  &mkp LCLK   &mkp RCLK       &mkp MCLK
             >;
 
             label = "MUSFN";
@@ -123,6 +111,33 @@
   &trans                 &trans  &kp LC(LA(Z))              &trans  &trans  &trans  &trans  &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_CLR
   &trans                 &trans  &kp LC(LG(LA(LS(SPACE))))  &trans  &trans                  &trans           &trans           &sys_reset       &bootloader      &studio_unlock
                                  &trans                     &trans  &trans                  &trans           &trans           &trans
+            >;
+        };
+
+        media_layer {
+            bindings = <
+  &trans    &trans    &trans     &trans     &trans  &trans  &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF   &rgb_ug RGB_HUI    &rgb_ug RGB_SAI  &rgb_ug RGB_BRI
+  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &trans  &trans  &trans  &trans           &kp C_PREVIOUS    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT
+  &trans    &trans    &trans     &trans     &trans                  &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2       &bt BT_SEL 3     &bt BT_SEL 4
+                      &trans     &trans     &trans                  &kp C_STOP       &kp C_PLAY_PAUSE  &kp C_MUTE
+            >;
+        };
+
+        num_layer {
+            bindings = <
+  &trans  &kp N7  &kp N8  &kp N9  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans
+  &trans  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+  &trans  &kp N1  &kp N2  &kp N3  &trans                  &trans  &trans     &trans     &trans    &trans
+                  &trans  &kp N0  &trans                  &trans  &trans     &trans
+            >;
+        };
+
+        fun_layer {
+            bindings = <
+  &kp F12  &kp F7  &kp F8             &kp F9     &kp PRINTSCREEN  &trans  &trans  &trans  &trans     &trans     &trans    &trans
+  &kp F11  &kp F4  &kp F5             &kp F6     &kp SCROLLLOCK   &trans  &trans  &trans  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+  &kp F10  &kp F1  &kp F2             &kp F3     &kp PAUSE_BREAK                  &trans  &trans     &trans     &trans    &trans
+                   &kp K_APPLICATION  &kp SPACE  &kp TAB                          &trans  &trans     &trans
             >;
         };
     };
